@@ -1,27 +1,23 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask 
+from flask_sqlalchemy import SQLAlchemy 
 import os
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URI")
-# app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:password@34.142.88.205:3306/flask_example_db"
 
 app = Flask(__name__)
 
-@app.route('/')
-# @app.route('/home', methods=['GET', 'POST'])
-# def home():
-#     return "Hello World!"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URI") # Set the connection string to connect to the database
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:password@34.142.88.205:3306/flask_example_db"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False 
+db = SQLAlchemy(app) 
 
-@app.route('/home')
-def home():
-    return f"Hello World!"
+class Countries(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30), nullable=False)
+    cities = db.relationship('Cities', backref='country') 
 
-@app.route('/about')
-def about():
-    return 'ABOUT PAGE'
+class Cities(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30), nullable=False)
+    country_id = db.Column(db.Integer, db.ForeignKey('countries.id'), nullable=False)
 
-@app.route('/account')
-def account():
-    return render_template('account.html', title='My Account')
-
-
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+if __name__=='__main__':
+    app.run(debug=True, host='0.0.0.0')
