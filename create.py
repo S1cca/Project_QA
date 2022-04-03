@@ -7,7 +7,7 @@ db.session.add(uk)
 db.session.commit()
 
 ldn = Cities(name='London', country = uk)
-mcr = Cities(name='Manchester', country = Countries.query.filter_by(name='United Kingdom').first())
+mcr = Cities(name='Manchester', country = Countries.query.filter_by(name="United Kingdom").first())
 
 db.session.add(ldn)
 db.session.add(mcr)
