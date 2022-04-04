@@ -1,4 +1,9 @@
-flask
-flask_sqlalchemy
+Flask==1.1.2
+Flask-SQLAlchemy==2.4.4
+SQLAlchemy==1.3.18
 pymysql
-SQLalchemy
+flask-wtf
+wtforms
+flask-testing
+pytest
+pytest-cov
