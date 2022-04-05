@@ -9,41 +9,33 @@ from application.model import Game, Review
 def home():
     return render_template ('home.html', title='Home')
 
-
 @app.route('/about')
 def about():
-    return "This is the About Page"
+    return render_template ('about.html', title='About')
 
-@app.route('/add game', methods=['GET', 'POST'])
-def add_Game():
-    New_Game = Game(name="New Game", mode=1, Publisher="New Publisher", release_date="2019-01-01")
-    db.session.add(New_Game)
-    db.session.commit()
-    return redirect(url_for('home'))
+@app.route('/add_game_info', methods=['GET', 'POST'])
+def add_game_info():
+    return render_template ('add_game_info.html', title='Add Game')
 
-@app.route('/read')
-def read():
-    all_games = Game.query.all()
-    games_string = ""
-    for game in all_games:
-        games_string += "<br>" + game.name
-    return games_string
+@app.route('/delete_game_info', methods=['GET', 'POST'])
+def delete_game_info():
+    return render_template ('delete_game_info.html', title='Delete Game')
 
-@app.route('/update/<name>')
-def update(name):
-    first_game = Game.query.first()
-    first_game.name = name
-    db.session.commit()
-    print (f"Updated {first_game.name}")
-    return render_template('home.html')
+@app.route('/update_game_info', methods=['GET', 'POST'])
+def update_game_info():
+    return render_template ('update_game_info.html', title='Update Game')
     
-@app.route('/delete/<name>')
-def delete(name):
-    first_game = Game.query.first()
-    db.session.delete(first_game)
-    db.session.commit()
-    print (f"{first_game.name} has been successfully deleted")
-    return render_template('home.html')
+@app.route('/add_game_review', methods=['GET', 'POST'])
+def add_game_review():
+    return render_template ('add_game_review.html', title='Add Game Review')
+
+@app.route('/delete_game_review', methods=['GET', 'POST'])
+def delete_game_review():
+    return render_template ('delete_game_review.html', title='Delete Game Review')
+
+@app.route('/update_game_review', methods=['GET', 'POST'])
+def update_game_review():
+    return render_template ('update_game_review.html', title='Update Game Review')
 
 
 if __name__ == "__main__":

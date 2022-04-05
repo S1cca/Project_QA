@@ -1,7 +1,22 @@
 <html>
     <body>
-<h1>Hello</h1>
-{% block body %}
-{% endblock body %}
-    </body>
+<body>
+    <div class="header">
+        <div > <h1> Game Review posting</h1></div>
+        <div id = "links">
+            <a href="{{ url_for('home') }}"style="color:black">Home</a>
+            <a href="{{ url_for('add_game_info') }}"style="color:black">Add Game infomation</a>
+            <a href="{{ url_for('update_game_info') }}"style="color:black">Update Game infomation</a>
+            <a href="{{ url_for('delete_game_info') }}"style="color:black">Delete Stored Game infomation</a>
+            <a href="{{ url_for('add_game_review') }}"style="color:black">Add game review</a>
+            <a href="{{ url_for('update_game_review') }}"style="color:black">Update a game review</a>
+            <a href="{{ url_for('delete_game_review') }}"style="color:black">Delete a game review</a>
+            <a href="{{ url_for('about') }}" style="color:black">About</a>
+        </div>
+    </div>
+    <div class="container">        
+        {% block body %}
+        {% endblock body %}
+    </div>
+</body>
 </html>
