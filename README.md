@@ -35,5 +35,5 @@
 
 Create a Python virtual environment 
 python3 -m venv venv
-\n
+
 source venv/bin/activate
