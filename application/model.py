@@ -6,7 +6,6 @@ class Current_Account(db.model):
     balance = db.Column(db.Float)
     account_number = db.Column(db.Integer)
     account_type = db.Column(db.String(20))
-    account_status = db.Column(db.String(20))
     account_open_date = db.Column(db.Date)
 
 
