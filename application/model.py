@@ -16,6 +16,3 @@ class Review(db.Model):
     comments = db.Column(db.String(200), nullable=False)
 
 
-if __name__=='__main__':
-    app.run(debug==True, host='0.0.0.0')
-
