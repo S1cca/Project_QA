@@ -4,38 +4,38 @@ from wtforms.validators import DataRequired, Length, ValidationError, NumberRang
 from application.model import Game, Review
 
 class add_game_info(FlaskForm):
-    game = StringField('Game Name', validators=[DataRequired(), Length(min=2, max=20)])
-    mode = StringField('Mode', validators=[DataRequired(), Length(min=2, max=20)])
+    game_name = StringField('Game Name', validators=[DataRequired(), Length(min=2, max=20)])
+    category = StringField('category', validators=[DataRequired(), Length(min=2, max=20)])
     publisher = StringField('Publisher', validators=[DataRequired(), Length(min=2, max=200)])
     release_date = StringField('Release Date', validators=[DataRequired()])
-    submit = SubmitField('Add Game')
+    submit = SubmitField('Press to Add Game')
 
 class delete_game_info(FlaskForm):
-    game = SelectField('Game', coerce=int)
-    submit = SubmitField('Delete Game')
+    game = SelectField(u'Game',choice = [])
+    submit = SubmitField('Press to Delete Game')
 
 class update_game_info(FlaskForm):
-    game = SelectField('Game', coerce=int)
+    game = SelectField(u'Game',choice = [])
     game_name = StringField('Game Name', validators=[DataRequired(), Length(min=2, max=20)])
-    mode = StringField('Mode', validators=[DataRequired(), Length(min=2, max=20)])
+    category = StringField('Category', validators=[DataRequired(), Length(min=2, max=20)])
     publisher = StringField('Publisher', validators=[DataRequired(), Length(min=2, max=200)])
     release_date = StringField('Release Date', validators=[DataRequired()])
-    submit = SubmitField('Update Game')
+    submit = SubmitField('Press to Update Game')
 
 class add_game_review(FlaskForm):
-    game = SelectField('Game', coerce=int)
+    game = SelectField('Game')
     review_date = StringField('Review Date', validators=[DataRequired()])
     rating = IntegerField('Rating', validators=[DataRequired(), NumberRange(min=1, max=10)])
     comments = StringField('Comments', validators=[DataRequired(), Length(min=2, max=200)])
-    submit = SubmitField('Add Game Review')
+    submit = SubmitField('Press to Add Game Review')
 
 class delete_game_review(FlaskForm):
-    review = SelectField('Review', coerce=int)
-    submit = SubmitField('Delete Game Review')
+    review = SelectField('Review')
+    submit = SubmitField('Press to Delete Game Review')
 
 class update_game_review(FlaskForm):
-    review = SelectField('Review', coerce=int)
+    review = SelectField('Review')
     review_date = StringField('Review Date', validators=[DataRequired()])
     rating = IntegerField('Rating', validators=[DataRequired(), NumberRange(min=1, max=10)])
     comments = StringField('Comments', validators=[DataRequired(), Length(min=2, max=200)])
-    submit = SubmitField('Update Game Review')
+    submit = SubmitField('Press to Update Game Review')
