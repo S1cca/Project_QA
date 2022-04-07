@@ -3,7 +3,7 @@
 
 {% block body %}
 <title {text-align: center;} style="padding-left:40px">
-    HERE IS THE home page
+    Home
 </title>
 
 <div style="padding-left:40px">
@@ -19,6 +19,8 @@
         <button type="button">Update</button>
         <a href="{{url_for('delete_game_info', game_name = Game.game_name)}}">
             <button type="button">Delete</button>
+            <!-- <a href="{{url_for('reviewlist', game_id = Game.game_id)}}">
+                <button type="button">Reviews</button> -->
         </a>
         <br>
         category: {{Game.category}}

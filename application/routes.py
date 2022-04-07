@@ -51,9 +51,20 @@ def add_game_review():
         return render_template('home.html', message = 'Review Added!')
     return render_template ('add_game_review.html', form = form)
 
-@app.route('/delete_game_review', methods=['GET', 'POST'])
-def delete_game_review():
-    return render_template ('delete_game_review.html', title='Delete Game Review')
+@app.route('/delete_game_review/<game_id>', methods=['GET', 'POST'])
+def delete_game_review(game_id):
+    message = " "
+    review = Review.query.filter_by(game_id=game_id).first()
+    if review:
+        db.session.delete(review)
+        db.session.commit()
+        return render_template('home.html', message = 'Review Deleted!')
+    return render_template ('home.html', game_name=game_name)
+
+@app.route('/reviewlist', methods=['GET', 'POST'])
+def reviewlist():
+    all_reviews = Review.query.all()
+    return render_template ('reviewlist.html', all_reviews=all_reviews)
 
 @app.route('/update_game_review', methods=['GET', 'POST'])
 def update_game_review():
