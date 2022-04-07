@@ -8,26 +8,24 @@ class Game(db.Model):
     game_name = db.Column(db.String(20), nullable=False)
     category = db.Column(db.String(20), nullable=False)
     publisher = db.Column(db.String(200), nullable=False)
-    release_date = db.Column(db.Date, nullable=False)
+    review_game = db.relationship('Review', backref='gamebr', lazy=True)
 
-class Gameform(FlaskForm):
+class AddGame(FlaskForm):
     game_name = StringField('Enter the name of the game: ')
     category = StringField('Enter the category of the game: ')
     publisher = StringField('Enter the publisher of the game: ')
-    release_date = StringField('Enter the release date of the game: ')
     submit = SubmitField('Add Game')
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False)
-    review_date = db.Column(db.Date, nullable=False)
+    game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False) 
     rating = db.Column(db.Integer)
-    comments = db.Column(db.String(200), nullable=False)
+    comments = db.Column(db.String(200))
 
-    def __init__(self, game_id, review_date, rating, comments):
-        self.game_id = game_id
-        self.review_date = review_date
-        self.rating = rating
-        self.comments = comments
+class AddReview(FlaskForm):
+    game_name = SelectField(u'Game', choices = [])
+    rating = StringField('Please Rate the game from 1 to 5: ')
+    comments = StringField('Enter your comments here: ')
+    submit = SubmitField('Post Review')
 
 

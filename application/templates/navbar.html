@@ -1,18 +1,20 @@
 <html>
     <body>
-
+        <style>
+            h1 {text-align: center;}
+            p {text-align: center;}
+            div {text-align: center;}
+            </style>
 <body>
     <div class="header">
-        <div > <h1> FAKE IGN WEBSITE</h1></div>
+        <div > <h1> <br><br>FAKE IGN WEBSITE<br><br></h1></div>
         <div id = "links">
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('add_game_info') }}">Add Game infomation</a>
-            <a href="{{ url_for('update_game_info') }}">Update Game infomation</a>
-            <a href="{{ url_for('delete_game_info') }}">Delete Stored Game infomation</a>
-            <a href="{{ url_for('add_game_review') }}">Add game review</a>
-            <a href="{{ url_for('update_game_review') }}">Update a game review</a>
-            <a href="{{ url_for('delete_game_review') }}">Delete a game review</a>
-            <a href="{{ url_for('about') }}" >About</a>
+            <a href="{{ url_for('home') }}"><button type = "button">Home</button>
+            <a href="{{ url_for('add_game_info') }}"><button type = "button">Add Game infomation</button>
+            <!-- <a href="{{ url_for('update_game_info') }}">Update Game infomation</a> -->
+            <a href="{{ url_for('add_game_review') }}"><button type = "button">Add Game Review</button>
+            <!-- <a href="{{ url_for('update_game_review') }}">Update a game review</a> -->
+            <a href="{{ url_for('about') }}" ><button type = "button">About</button> </a>
         </div>
     </div>
     <div class="container">        

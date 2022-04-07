@@ -1,6 +1,27 @@
 {% extends 'home.html'%}
 {% block body %}
+
 <div style="padding-left:40px">
-<p>HERE IS THE POSTING GAME REVIEW PAGE</p>
+
+</div>
+<div class='form'>
+    <h2><br>Please choose a game to post review with</h2>
+    <br>
+
+    <form method='POST' action=''>
+        {{ form.hidden_tag() }}
+        <br>
+        <p></p>
+        {{ form.game_name.label }} {{ form.game_name }}
+        <br>
+        <p></p>
+        {{ form.comments.label }} {{ form.comments }}
+        <br>
+        <p></p>
+        {{ form.rating.label }} {{ form.rating }}
+        <br>
+        <p></p>
+        {{ form.submit }}
+    </form>
 </div>
 {% endblock body %}
