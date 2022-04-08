@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, request
 from application import app, db
 from application.model import Game, Review, AddGame, AddReview, UpdateGame
-from application.forms import add_game_info, delete_game_info, update_game_info, add_game_review
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -57,7 +57,7 @@ def delete_game_review(game_id):
     if review:
         db.session.delete(review)
         db.session.commit()
-        return render_template('home.html', message = 'Review Deleted!')
+        return render_template ('reviewlist.html', all_reviews=Review.query.all())
     return render_template ('reviewlist.html', all_reviews=Review.query.all())
 
 @app.route('/reviewlist', methods=['GET', 'POST'])
