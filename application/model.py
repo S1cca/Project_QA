@@ -10,25 +10,27 @@ class Game(db.Model):
     publisher = db.Column(db.String(200), nullable=False)
     review_game = db.relationship('Review', backref='gamebr', lazy=True)
 
+    def __repr__(self):
+        return f"Game('{self.game_name}', '{self.category}', '{self.publisher}')"
+
 
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False)
-    game_name = db.Column(db.String(20), nullable=False)
-    rating = db.Column(db.Integer)
+    rating = db.Column(db.Integer())
     comments = db.Column(db.String(200))
 
 class AddGame(FlaskForm):
     game_name = StringField('Enter the name of the game: ')
     category = StringField('Enter the category of the game: ')
     publisher = StringField('Enter the publisher of the game: ')
-    submit = SubmitField('Add Game')
+    submit = SubmitField('Add Game !')
     
 class AddReview(FlaskForm):
-    game_name = SelectField(u'Game', choices = [])
+    game_name = SelectField(u'Game: ', choices = [])
     rating = StringField('Please Rate the game from 1 to 5: ')
     comments = StringField('Enter your comments here: ')
-    submit = SubmitField('Post Review')
+    submit = SubmitField('Post Review !')
 
 

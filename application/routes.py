@@ -43,13 +43,14 @@ def add_game_review():
     form = AddReview()
     form.game_name.choices = [(game.id, game.game_name) for game in Game.query.all()]
     if form.validate_on_submit():
-        new_review = Review(rating=form.rating.data,
-                            game_id=form.game_name.data, 
-                            comments=form.comments.data)
+        new_review = Review(rating = form.rating.data,
+                            game_id = form.game_name.data, 
+                            comments = form.comments.data)
         db.session.add(new_review)
         db.session.commit()
         return render_template('home.html', message = 'Review Added!')
-    return render_template ('add_game_review.html', form = form)
+    else:
+        return render_template ('add_game_review.html', form = form)
 
 @app.route('/delete_game_review/<game_id>', methods=['GET', 'POST'])
 def delete_game_review(game_id):
