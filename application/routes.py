@@ -17,26 +17,25 @@ def about():
 @app.route('/add_game_info', methods=['GET', 'POST'])
 def add_game_info():
     form = AddGame()
-    if form.validate_on_submit():
+    if request.method == 'POST':
         new_game = Game(game_name=form.game_name.data, 
                     category=form.category.data, 
                     publisher=form.publisher.data)
         db.session.add(new_game)
         db.session.commit()
-        return render_template('home.html', message = 'Game Added!')
+        return render_template('home.html', all_games=Game.query.all())
     else:
         return render_template('add_game_info.html', form=form)    
         
 
 @app.route('/delete_game_info/<game_name>', methods=['GET', 'POST'])
 def delete_game_info(game_name):
-    message = " "
     game = Game.query.filter_by(game_name=game_name).first()
     if game:
         db.session.delete(game)
         db.session.commit()
-        return render_template('home.html', message = 'Game Deleted!')
-    return render_template ('home.html', game_name=game_name)
+        return render_template('home.html', all_games=Game.query.all())
+    return render_template ('home.html', all_games=Game.query.all())
 
 @app.route('/add_game_review', methods=['GET', 'POST'])
 def add_game_review():
@@ -48,7 +47,7 @@ def add_game_review():
                             comments = form.comments.data)
         db.session.add(new_review)
         db.session.commit()
-        return render_template('home.html', message = 'Review Added!')
+        return render_template('reviewlist.html', all_reviews=Review.query.all())
     else:
         return render_template ('add_game_review.html', form = form)
 
@@ -60,7 +59,7 @@ def delete_game_review(game_id):
         db.session.delete(review)
         db.session.commit()
         return render_template('home.html', message = 'Review Deleted!')
-    return render_template ('home.html', game_name=game_name)
+    return render_template ('reviewlist.html', all_reviews=Review.query.all())
 
 @app.route('/reviewlist', methods=['GET', 'POST'])
 def reviewlist():

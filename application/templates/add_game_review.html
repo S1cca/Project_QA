@@ -23,5 +23,12 @@
         <p></p>
         {{ form.submit }}
     </form>
+
+    {% if review %}
+    <h2>Review added</h2>
+    <p>{{Review.game_id}}, rating: {{Review.rating}}, comments: {{Review.comments}}</p>
+    {% endif %}
+
 </div>
+
 {% endblock body %}

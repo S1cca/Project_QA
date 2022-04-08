@@ -22,7 +22,7 @@ class Review(db.Model):
     comments = db.Column(db.String(200))
 
 class AddGame(FlaskForm):
-    game_name = StringField('Enter the name of the game: ')
+    game_name = StringField('Enter the name of the game: ', validators=[DataRequired()])
     category = StringField('Enter the category of the game: ')
     publisher = StringField('Enter the publisher of the game: ')
     submit = SubmitField('Add Game !')

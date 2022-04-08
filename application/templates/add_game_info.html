@@ -10,22 +10,26 @@
     <br>
     <h3>You can Add New Game Here</h3>
 </div>
-<div class='form'>
-    <form method='POST' action=''>
-        {{ form.hidden_tag() }}
-        <h2>Add a Game</h2>
-        <br>
-        {{ form.game_name.label }} {{ form.game_name }}
-        <br>
-        <p></p>
-        {{ form.category.label }} {{ form.category }}
-        <br>
-        <p></p>
-        {{ form.publisher.label }} {{ form.publisher }}
-        <br>
-        <p></p>
-        {{ form.submit }}
-
-    </form>
+{% if form %}
+<form method='POST'>
+    {{ form.hidden_tag() }}
+    <h2>Add a Game</h2>
+    <br>
+    {{ form.game_name.label }} {{ form.game_name }}
+    <br>
+    <p></p>
+    {{ form.category.label }} {{ form.category }}
+    <br>
+    <p></p>
+    {{ form.publisher.label }} {{ form.publisher }}
+    <br>
+    <p></p>
+    {{ form.submit }}
+</form>
+    {% endif %}
+    {% if game %}
+    <h2>Game added</h2>
+    <p>{{Game.game_name}}, category: {{Game.category}}, publisher: {{Game.publisher}}</p>
+    {% endif %}
 </div>
 {% endblock body %}
