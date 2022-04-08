@@ -1,4 +1,4 @@
-# QAProject_01 - Banking Account
+# QAProject_01 - Game Review
 
 ## Contents
 
