@@ -2,8 +2,6 @@ from flask import render_template, url_for, redirect, request
 from application import app, db
 from application.model import Game, Review, AddGame, AddReview, UpdateGame
 
-
-
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
 def home():
