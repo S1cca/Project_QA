@@ -1,6 +1,26 @@
 {% extends 'home.html'%}
 {% block body %}
 <div style="padding-left:40px">
-<p>HERE IS THE UPDATING GAME INFO PAGE</p>
+    <p>Update details here</p>
+    {% block content %}
+    <h2> Current Game Name: {{ update_game_info.game_name }} </h2>
+    <br>
+    <div>
+        <form action="{{ url_for('update_game_info', game_name = update_game_info.game_name) }}" method='POST'>
+            {{ form.hidden_tag() }}
+            {{ form.game_name.label }}{{ form.game_name}}
+            <br>
+            <p></p>
+            {{ form.category.label }} {{ form.category }}
+            <br>
+            <p></p>
+            {{ form.publisher.label }} {{ form.publisher }}
+            <br>
+            {{ form.submit }}
+        </form>
+    </div>
+    {% endblock content %}
+
+
 </div>
 {% endblock body %}

@@ -14,7 +14,6 @@ class Game(db.Model):
         return f"Game('{self.game_name}', '{self.category}', '{self.publisher}')"
 
 
-
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False)
@@ -25,12 +24,18 @@ class AddGame(FlaskForm):
     game_name = StringField('Enter the name of the game: ', validators=[DataRequired()])
     category = StringField('Enter the category of the game: ')
     publisher = StringField('Enter the publisher of the game: ')
-    submit = SubmitField('Add Game !')
+    submit = SubmitField(' Add ')
     
 class AddReview(FlaskForm):
     game_name = SelectField(u'Game: ', choices = [])
     rating = StringField('Please Rate the game from 1 to 5: ')
     comments = StringField('Enter your comments here: ')
-    submit = SubmitField('Post Review !')
+    submit = SubmitField(' Post ')
+
+class UpdateGame(FlaskForm):
+    game_name = StringField('Enter a new Game Name: ', validators=[DataRequired()])
+    category = StringField('Enter a new Category: ')
+    publisher = StringField('Enter a new Publisher: ')
+    submit = SubmitField(' Update ')
 
 

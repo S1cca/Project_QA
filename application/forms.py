@@ -29,9 +29,3 @@ class add_game_review(FlaskForm):
 class delete_game_review(FlaskForm):
     review = SelectField('Review')
     submit = SubmitField('Press to Delete Game Review')
-
-class update_game_review(FlaskForm):
-    review = SelectField('Review')
-    rating = IntegerField('Rating', validators=[DataRequired(), NumberRange(min=1, max=10)])
-    comments = StringField('Comments', validators=[DataRequired(), Length(min=2, max=200)])
-    submit = SubmitField('Press to Update Game Review')

@@ -1,7 +1,7 @@
 from flask import render_template, url_for, redirect, request
 from application import app, db
-from application.model import Game, Review, AddGame, AddReview
-from application.forms import add_game_info, delete_game_info, update_game_info, add_game_review, delete_game_review, update_game_review
+from application.model import Game, Review, AddGame, AddReview, UpdateGame
+from application.forms import add_game_info, delete_game_info, update_game_info, add_game_review
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -53,7 +53,6 @@ def add_game_review():
 
 @app.route('/delete_game_review/<game_id>', methods=['GET', 'POST'])
 def delete_game_review(game_id):
-    message = " "
     review = Review.query.filter_by(game_id=game_id).first()
     if review:
         db.session.delete(review)
@@ -66,10 +65,15 @@ def reviewlist():
     all_reviews = Review.query.all()
     return render_template ('reviewlist.html', all_reviews=all_reviews)
 
-@app.route('/update_game_review', methods=['GET', 'POST'])
-def update_game_review():
-    return render_template ('update_game_review.html', title='Update Game Review')
-    
-@app.route('/update_game_info', methods=['GET', 'POST'])
-def update_game_info():
-    return render_template ('update_game_info.html', title='Update Game')
+@app.route('/update_game_info/<game_name>', methods=['GET', 'POST'])
+def update_game_info(game_name):
+    form = UpdateGame()
+    update_game_info = Game.query.filter_by(game_name=game_name).first()
+    if form.validate_on_submit():
+        update_game_info.game_name = form.game_name.data
+        update_game_info.category = form.category.data
+        update_game_info.publisher = form.publisher.data
+        db.session.commit()
+        return render_template('home.html', all_games=Game.query.all())
+    return render_template ('update_game_info.html', update_game_info=update_game_info, form=form)
+
