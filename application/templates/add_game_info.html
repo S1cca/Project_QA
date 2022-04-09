@@ -23,10 +23,18 @@
     <p></p>
     {{ form.publisher.label }} {{ form.publisher }}
     <br>
+    {% if form.game_name.errors %}
+    <div class='error'>
+        {% for error in form.game_name.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <br>
     <p></p>
     {{ form.submit }}
 </form>
-    {% endif %}
+{% endif %}
 
 </div>
 {% endblock body %}

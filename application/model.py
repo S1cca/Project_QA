@@ -17,6 +17,7 @@ class Game(db.Model):
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False)
+    # game_name = db.Column(db.String(20))
     rating = db.Column(db.Integer())
     comments = db.Column(db.String(200))
 
@@ -37,5 +38,6 @@ class UpdateGame(FlaskForm):
     category = StringField('Enter a new Category: ')
     publisher = StringField('Enter a new Publisher: ')
     submit = SubmitField(' Update ')
+
 
 

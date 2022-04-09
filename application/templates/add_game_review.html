@@ -20,6 +20,14 @@
         <p></p>
         {{ form.rating.label }} {{ form.rating }}
         <br>
+        {% if form.game_name.errors %}
+        <div class='error'>
+            {% for error in rating.comments.errors %}
+            <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <br>
         <p></p>
         {{ form.submit }}
     </form>
