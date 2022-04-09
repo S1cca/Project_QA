@@ -3,20 +3,26 @@
 ## Contents
 
 [Brief](#brief) 
+⋅⋅⋅This a web application that integrates with a database and demonstrate CRUD functionality, users will be able to track various game detail stored in the database, and the review for each game, users will be able to input and delete game details for each game,including game name, publisher, and category of the game; on the other hand, users will also be able to post and remove game review to the game that was previously stored in the database, including post comments and rating to the game user has selected. However, users will also be able to update details to any stored game and game review if users have ever changed their mind. Users would be able to review all games and game review they have saved in the database
 
-2. [Project Design](#project-design) 
+⋅⋅⋅The implicit CRUD functionality of this app will include:
+⋅⋅*CREATE
+⋅⋅⋅⋅⋅⋅Add Game
+⋅⋅⋅⋅⋅⋅Add Game Review
 
-3. [Database Design](#databse-design) 
+1. [Project Design](#project-design) 
 
-4. [HTML Templates](#html-templates) 
+2. [Database Design](#databse-design) 
 
-5. [CI/CD pipeline](#ci/cd-pipeline) 
+3. [HTML Templates](#html-templates) 
 
-6. [Unit Tests](#unit-tests)
+4. [CI/CD pipeline](#ci/cd-pipeline) 
 
-7. [Security and Risk Assessment](#security-and-risk-assessment) 
+5. [Unit Tests](#unit-tests)
 
-8. [Project Planning and Version Source Control](#project-planning-and-version-source-control) 
+6. [Security and Risk Assessment](#security-and-risk-assessment) 
+
+7. [Project Planning and Version Source Control](#project-planning-and-version-source-control) 
 
 
 ## <a name="brief"></a>Brief 
