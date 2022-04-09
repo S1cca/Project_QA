@@ -15,7 +15,7 @@ def about():
 @app.route('/add_game_info', methods=['GET', 'POST'])
 def add_game_info():
     form = AddGame()
-    if request.method == 'POST':
+    if form.validate_on_submit():
         new_game = Game(game_name=form.game_name.data, 
                     category=form.category.data, 
                     publisher=form.publisher.data)
@@ -45,7 +45,7 @@ def add_game_review():
                             comments = form.comments.data)
         db.session.add(new_review)
         db.session.commit()
-        return render_template('reviewlist.html', all_reviews=Review.query.all())
+        return render_template('reviewlist.html', all_reviews=Review.query.all(), message='Review Added')
     else:
         return render_template ('add_game_review.html', form = form)
 
@@ -55,7 +55,7 @@ def delete_game_review(game_id):
     if review:
         db.session.delete(review)
         db.session.commit()
-        return render_template ('reviewlist.html', all_reviews=Review.query.all())
+        return render_template ('reviewlist.html', all_reviews=Review.query.all(), message='Review Deleted')
     return render_template ('reviewlist.html', all_reviews=Review.query.all())
 
 @app.route('/reviewlist', methods=['GET', 'POST'])
@@ -72,6 +72,6 @@ def update_game_info(game_name):
         update_game_info.category = form.category.data
         update_game_info.publisher = form.publisher.data
         db.session.commit()
-        return render_template('home.html', all_games=Game.query.all())
+        return render_template('home.html', all_games=Game.query.all(), message='Game Updated')
     return render_template ('update_game_info.html', update_game_info=update_game_info, form=form)
 
