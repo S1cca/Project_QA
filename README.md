@@ -155,4 +155,21 @@ Jenkins is currently set to run this automation from any branch of the GitHub re
 
 ## Future Work
 
-This application is not completely finished 
+This application is not completely finished, further work would be needed to complete this application:
+
+* Application is not displaying the name of the game that from the review list, hence users would not be able to easily identify the name of the game from the Game ID
+* CSS could be applied to the application to make it more user friendly, and pretty
+* There is no error message to user if something can not be done, e.g. deleting a stored game whilst a game review is depending on this game, this application would simplely collapse
+* More features could be added to the application, such as research the entire database using keywords
+
+## Acknowledgements
+
+**Earl Grey**
+
+**Tony Zherka**
+
+**Simon Hart**
+
+**JoJo**
+
+**Huijing Yu**
