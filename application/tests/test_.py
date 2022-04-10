@@ -69,7 +69,17 @@ class TestList(TestApp):
         response = self.client.get(url_for('add_game_review'))
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Add', response.data)
-
+        
+    def test_update_game_page(self):
+        response = self.client.get(url_for('update_game_info', game_name = 'test_game'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Update', response.data)
+    
+    def test_update_game_review_page(self):
+        response = self.client.get(url_for('update_game_review',game_id =1))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Update', response.data)
+        
 class TestAdd(TestApp):
     def test_add_game(self):
         response = self.client.post(
@@ -108,8 +118,16 @@ class TestUpdate(TestApp):
             data = {'game_name': 'update_game', 'category': 'update_category', 'publisher': 'update_publisher'},
         )
         self.assertEqual(response.status_code, 200)
-        assert "update_game" in response.data.decode()
+        assert "update" in response.data.decode()
 
+    def test_update_game_review(self):
+        response = self.client.post(
+            url_for('update_game_review', game_id = 1),
+            data = {'rating': 5, 'comments': 'update_review'},
+        )
+        self.assertEqual(response.status_code, 200)
+        assert "update" in response.data.decode()
+    
 
     
 
