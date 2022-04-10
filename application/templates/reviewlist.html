@@ -8,11 +8,11 @@
 {% for review in all_reviews %}
 <p>
     Game ID: {{ review.game_id }}
-    <a href="{{url_for('delete_game_review', game_id = review.game_id)}}">
-        <button type="button">Delete</button>
-    </a>
     <a href="{{url_for('update_game_review', game_id = review.game_id)}}">
         <button type="button">Update</button>
+    </a>
+    <a href="{{url_for('delete_game_review', game_id = review.game_id)}}">
+        <button type="button">Delete</button>
     </a>
     <br>
     comments: {{review.comments}}
