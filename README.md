@@ -164,6 +164,8 @@ This application is not completely finished, further work would be needed to com
 
 ## Acknowledgements
 
+**Huijing Yu**
+
 **Earl Grey**
 
 **Tony Zherka**
@@ -172,4 +174,4 @@ This application is not completely finished, further work would be needed to com
 
 **JoJo**
 
-**Huijing Yu**
+
