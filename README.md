@@ -131,11 +131,8 @@ The About Page will show some basic detail about this appplication and where to 
 The pipeline image represents how will the entire project work breaking down into different stages, and tools/platform have been chosen to use for each stage of development. For my project, I have used flask to build my application including the database schema which was connected to an external SQL instance created from Google Cloud Platform, since it was ideally reliable and secure to use 
 ![image](https://user-images.githubusercontent.com/76656869/162626126-8a2ac243-fa28-49c1-9fa5-c1ef7036ef78.png)
 
-## Unit Tests
-I have used **pytest** for
-
-
-Here are my code for pytest
+## Testing
+**pytest** is the best way to test python programs. Here are my code for pytest
 
 ![image](https://user-images.githubusercontent.com/76656869/162637586-eea9c533-2363-41b4-82e7-d7db2aca0708.png)
 ![image](https://user-images.githubusercontent.com/76656869/162637590-88386e89-1151-445b-b90b-aaff844a02ff.png)
@@ -145,6 +142,17 @@ and the pytest coverage report
 
 ![image](https://user-images.githubusercontent.com/76656869/162639829-009f06c6-40f1-43fb-bb79-ccff16831171.png)
 
+## Build Automation
 
+I have used Jenkins as the CI server, a list of commands could to be excuted in order to install the various modules and dependencies of the project, a virtual environment would be created and then the database connection string will then be exported before the app launches
 
-# Instructions to run Application on local machine.
+In Jenkins, the GitHub repository will be cloned and a scipt with build (list of commands), and eventually test stage will run. See below as the console output from Jenkins
+
+![image](https://user-images.githubusercontent.com/76656869/162640307-95e860dc-769d-49f6-8bad-dc1fbaf90077.png)
+![image](https://user-images.githubusercontent.com/76656869/162640377-edf981c4-16f4-4001-afe6-dd56f0c0ca87.png)
+
+Jenkins is currently set to run this automation from any branch of the GitHub repo on the click of a button, however for future development Jenkins would most likely be set to run tests automatically on pushing to the repos 'Main' branch.
+
+## Future Work
+
+This application is not completely finished 
