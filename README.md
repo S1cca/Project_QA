@@ -135,11 +135,16 @@ The pipeline image represents how will the entire project work breaking down int
 I have used **pytest** for
 
 
-Here are my code for pytest, and the pytest coverage report
+Here are my code for pytest
 
 ![image](https://user-images.githubusercontent.com/76656869/162637586-eea9c533-2363-41b4-82e7-d7db2aca0708.png)
 ![image](https://user-images.githubusercontent.com/76656869/162637590-88386e89-1151-445b-b90b-aaff844a02ff.png)
 ![image](https://user-images.githubusercontent.com/76656869/162637598-1c635ec0-e804-47f8-8365-48e9eba354fb.png)
+
+and the pytest coverage report
+
+![image](https://user-images.githubusercontent.com/76656869/162639829-009f06c6-40f1-43fb-bb79-ccff16831171.png)
+
 
 
 # Instructions to run Application on local machine.
