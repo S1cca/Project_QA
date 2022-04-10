@@ -35,5 +35,8 @@ class UpdateGame(FlaskForm):
     publisher = StringField('Enter a new Publisher: ')
     submit = SubmitField(' Update ')
 
-
+class UpdateGameReview(FlaskForm):
+    rating = StringField('Please Rate the game from 1 to 5: ')
+    comments = StringField('Enter your comments here: ')
+    submit = SubmitField(' Update ')
 
