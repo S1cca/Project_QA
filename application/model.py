@@ -10,10 +10,6 @@ class Game(db.Model):
     publisher = db.Column(db.String(200), nullable=False)
     review_game = db.relationship('Review', backref='gamebr', lazy=True)
 
-    def __repr__(self):
-        return f"Game('{self.game_name}', '{self.category}', '{self.publisher}')"
-
-
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'), nullable=False)
