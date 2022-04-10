@@ -83,12 +83,61 @@ __View:__
 ## Risk Assessment
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My risk assessment, while simple, aimed to identify potential project concerns. The entries with proposed Control Measures rather than realised Control Measures were considered and documented later in the project.
 ![image](https://user-images.githubusercontent.com/76656869/162620003-34bb606c-668b-482e-82f5-000f946a9ca2.png)
+
 ## HTML Page functionality 
 
-### CI/CD Pipeline
+#### Home Page
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In my home page, I have managed to list all games that stored in the data base to user, as well as navbar for users to use, this page will be shown to all users once they have navigated to the URL.
+
+Users will not be allowed to delete a game that have saved review to it, since the Game table contains a foreign key acting as a Primary key in the Review table
+![image](https://user-images.githubusercontent.com/76656869/162629253-3a3e9cea-444d-4fef-90d5-08dd4a05e1ae.png)
+
+#### Add Game Infomation Page 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To add a Game to the database, users would only to  click the Add Game Infomation Button, then users will be redirected into the Add Game Infomation Page, There will be 3 empty boxes to allow users to input relative infomation about the game they wanted to add to the database, Game Name, Game Category, Publisher of the game.
+
+![image](https://user-images.githubusercontent.com/76656869/162637172-f74ec1a2-ae66-407e-9130-ad5e06808253.png)
+
+
+#### Add Game Review Page
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By clicking the Add Game Review button, users will be allowed to post their review to a game
+
+![image](https://user-images.githubusercontent.com/76656869/162637181-e3c0db75-ce37-4b5e-a344-73d7fd55858a.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Users will be able to choose a game from the database (where they previously stored) to post relative review to it
+![image](https://user-images.githubusercontent.com/76656869/162637195-791a5658-c7ab-46bf-997a-1d843ac3e55a.png)
+
+
+#### Review List
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After user have added their reviews, they can browse all their reviews in this Review list, I have managed to show all previously saved review to the user, users could manage their saved reviews by clicking relative button: update, delete.
+
+
+![image](https://user-images.githubusercontent.com/76656869/162630439-3a95e0fc-6e09-4399-b227-1bc4b09b01fe.png)
+
+
+#### About Page
+
+The About Page will show some basic detail about this appplication and where to locate the repository code
+![image](https://user-images.githubusercontent.com/76656869/162631118-197c1d06-7c2c-49b1-9919-903e81e2d176.png)
+
+
+
+## CI/CD Pipeline
+
+The pipeline image represents how will the entire project work breaking down into different stages, and tools/platform have been chosen to use for each stage of development. For my project, I have used flask to build my application including the database schema which was connected to an external SQL instance created from Google Cloud Platform, since it was ideally reliable and secure to use 
 ![image](https://user-images.githubusercontent.com/76656869/162626126-8a2ac243-fa28-49c1-9fa5-c1ef7036ef78.png)
 
 ## Unit Tests
+I have used **pytest** for
+
+
+Here are my code for pytest, and the pytest coverage report
+
+![image](https://user-images.githubusercontent.com/76656869/162637586-eea9c533-2363-41b4-82e7-d7db2aca0708.png)
+![image](https://user-images.githubusercontent.com/76656869/162637590-88386e89-1151-445b-b90b-aaff844a02ff.png)
+![image](https://user-images.githubusercontent.com/76656869/162637598-1c635ec0-e804-47f8-8365-48e9eba354fb.png)
+
 
 # Instructions to run Application on local machine.
