@@ -164,9 +164,11 @@ This application is not completely finished, further work would be needed to com
 
 ## Acknowledgements
 
+Many Thanks to people have assisted me with this project, 
+
 **Huijing Yu**
 
-**Earl Grey**
+**Earl Grey**, **QA Community**, **Leon Robinson**, 
 
 **Tony Zherka**
 
